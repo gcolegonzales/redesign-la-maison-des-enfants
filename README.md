@@ -39,6 +39,19 @@ transportation and subsidized-care participation. Founding year 1970 per the bus
 own Facebook handle (`LaMaison1970`). The daily-schedule times are a plausible
 illustration and should be confirmed with the center.
 
+## SEO / deploy note
+
+On-page SEO is wired in: a unique `<title>` + meta description, one `<h1>`,
+JSON-LD structured data (`@type: ChildCare`) with the center's real name, phone,
+address, hours, area served, and Facebook link, plus complete Open Graph + Twitter
+card tags, a `<link rel="canonical">`, `robots.txt`, and `sitemap.xml`.
+
+Because the final domain isn't known yet, every absolute URL (canonical, `og:url`,
+`og:image`, sitemap `<loc>`, `robots.txt` Sitemap line, and the JSON-LD `url`/`image`)
+uses the literal placeholder **`https://REPLACE-WITH-DOMAIN.com/`**. At deploy time,
+do a single find-and-replace of that string with the real domain across
+`index.html`, `robots.txt`, and `sitemap.xml`.
+
 ## Photos
 
 The business's only imagery lives on Facebook, which is token-blocked and cannot be
