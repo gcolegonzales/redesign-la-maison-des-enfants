@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Maison Des Enfants — Early Learning in Gonzales, LA since 1970</title>
+<meta name="description" content="La Maison Des Enfants has cared for Gonzales families since 1970. Loving early learning for ages 6 weeks to 11 years, with transportation. Schedule a tour today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-header" id="top">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="La Maison Des Enfants — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="40" height="40">
+          <path d="M24 5 6 20v22a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3V20L24 5Z" fill="var(--sun)"/>
+          <path d="M24 5 6 20h36L24 5Z" fill="var(--coral)"/>
+          <circle cx="24" cy="30" r="7" fill="#fff"/>
+          <circle cx="24" cy="30" r="3.4" fill="var(--sky)"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>La Maison Des Enfants</strong>
+        <em>Early Learning &middot; Est. 1970</em>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#day">A Day Here</a></li>
+      <li><a href="#care">Safety &amp; Care</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-cta" href="#tour">Schedule a Tour</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span> Gonzales, Louisiana &middot; Since 1970</p>
+      <h1>A warm place to grow, <span>for over 50 years</span></h1>
+      <p class="lede">
+        La Maison Des Enfants has cared for Gonzales families for three generations.
+        Loving, hands-on early learning for children <strong>6 weeks to 11 years</strong> —
+        with transportation, and the same steady heart since 1970.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tour">Schedule a Tour</a>
+        <a class="btn btn-ghost" href="tel:+12256474501">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.1 2.2Z"/></svg>
+          (225) 647-4501
+        </a>
+      </div>
+      <ul class="hero-facts">
+        <li><b>6 wks–11 yrs</b><span>every age, one home</span></li>
+        <li><b>Mon–Fri 6a–6p</b><span>built for working parents</span></li>
+        <li><b>Transportation</b><span>to &amp; from school</span></li>
+      </ul>
+    </div>
+
+    <!-- IMG-NEEDED: real warm hero photo. Uses assets/photos/hero.jpg when present. -->
+    <div class="hero-media" role="img" aria-label="Illustration of a warm, bright early learning center">
+      <div class="hero-photo" id="heroPhoto">
+        <svg class="hero-illus" viewBox="0 0 400 460" aria-hidden="true">
+          <defs>
+            <clipPath id="round"><rect x="0" y="0" width="400" height="460" rx="28"/></clipPath>
+          </defs>
+          <g clip-path="url(#round)">
+            <rect width="400" height="460" fill="var(--cream)"/>
+            <circle cx="320" cy="70" r="42" fill="var(--sun)"/>
+            <path d="M0 330 Q100 290 200 330 T400 330 V460 H0Z" fill="var(--mint)"/>
+            <path d="M0 370 Q120 340 240 375 T400 360 V460 H0Z" fill="var(--grass)"/>
+            <g>
+              <rect x="70" y="250" width="34" height="70" rx="14" fill="var(--coral)"/>
+              <circle cx="87" cy="235" r="20" fill="var(--peach)"/>
+              <rect x="160" y="240" width="34" height="80" rx="14" fill="var(--sky)"/>
+              <circle cx="177" cy="222" r="20" fill="var(--peach)"/>
+              <rect x="250" y="255" width="34" height="65" rx="14" fill="var(--grape)"/>
+              <circle cx="267" cy="240" r="20" fill="var(--peach)"/>
+            </g>
+            <g fill="#fff" opacity=".9">
+              <path d="M120 120c14-10 30-4 30 10 0 12-22 26-30 30-8-4-30-18-30-30 0-14 16-20 30-10Z" fill="var(--coral)"/>
+              <circle cx="300" cy="150" r="10"/>
+              <circle cx="70" cy="170" r="7"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-badge">
+        <b>50+</b>
+        <span>years caring for<br/>Gonzales families</span>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#story" aria-label="Scroll to our story">
+    <span></span>
+  </a>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-lead reveal">
+      <p class="section-kicker">Our Story</p>
+      <h2>The same family feeling since 1970.</h2>
+      <p>
+        For more than fifty years, La Maison Des Enfants — French for
+        <em>“the house of children”</em> — has been exactly that on Bayou Narcisse Road:
+        a house full of children, laughter, and the kind of steady care that Gonzales
+        parents have trusted across generations.
+      </p>
+      <p>
+        Some of the little ones who walked through our doors decades ago now bring their
+        own children to us. That continuity is our whole philosophy. We keep classrooms
+        warm, teachers familiar, and days predictable — because young children thrive on
+        knowing exactly where they belong.
+      </p>
+    </div>
+    <aside class="story-side reveal">
+      <div class="stat-line">
+        <span class="stat-num">1970</span>
+        <span class="stat-label">Opened our doors in Gonzales</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-num">6 wks–11 yrs</span>
+        <span class="stat-label">One trusted place through every stage</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Generations of local families served</span>
+      </div>
+      <p class="story-quote">
+        “The house of children — and for a lot of Gonzales, a second home.”
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= PROGRAMS (age-group editorial spreads) ================= -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">Programs by Age</p>
+      <h2>A room that fits exactly who they are right now.</h2>
+      <p class="section-sub">
+        Children move up as they’re ready — from the nursery to the pre-K classroom to
+        after-school. Each stage has its own space, rhythm, and teachers who know it well.
+      </p>
+    </header>
+
+    <!-- Infants -->
+    <article class="age-spread reveal">
+      <div class="age-media">
+        <!-- IMG-NEEDED: infants.jpg -->
+        <div class="age-photo tone-a" data-photo="infants.jpg">
+          <span class="age-tag">6 weeks – 12 months</span>
+        </div>
+      </div>
+      <div class="age-copy">
+        <h3>Infants &amp; Nursery</h3>
+        <p>
+          Our nursery runs on <em>your</em> baby’s schedule, not a clock on the wall.
+          Feedings, naps, and cuddles follow the routine you know at home, written down and
+          honored by caregivers who hold, rock, and talk to your little one all day long.
+        </p>
+        <ul class="age-points">
+          <li>Individual feeding &amp; nap schedules</li>
+          <li>Daily notes on bottles, diapers &amp; naps</li>
+          <li>Tummy time, songs &amp; gentle sensory play</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Toddlers -->
+    <article class="age-spread reverse reveal">
+      <div class="age-media">
+        <!-- IMG-NEEDED: toddlers.jpg -->
+        <div class="age-photo tone-b" data-photo="toddlers.jpg">
+          <span class="age-tag">1 – 2 years</span>
+        </div>
+      </div>
+      <div class="age-copy">
+        <h3>Toddlers</h3>
+        <p>
+          Busy hands, big feelings. Toddlers here get room to move and explore safely,
+          with gentle structure that turns everyday moments — snack, clean-up, story time —
+          into first lessons in words, sharing, and confidence.
+        </p>
+        <ul class="age-points">
+          <li>Early language &amp; motor-skill play</li>
+          <li>Potty-training partnership with parents</li>
+          <li>Music, movement &amp; messy art</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Preschool / Pre-K -->
+    <article class="age-spread reveal">
+      <div class="age-media">
+        <!-- IMG-NEEDED: preschool.jpg -->
+        <div class="age-photo tone-c" data-photo="preschool.jpg">
+          <span class="age-tag">3 – 4 years</span>
+        </div>
+      </div>
+      <div class="age-copy">
+        <h3>Preschool &amp; Pre-K</h3>
+        <p>
+          The kindergarten-ready years. Through circle time, letters and numbers, hands-on
+          centers, and lots of play, our pre-K room builds the routines and school-readiness
+          skills children carry straight into their first classroom.
+        </p>
+        <ul class="age-points">
+          <li>Letters, numbers, colors &amp; shapes</li>
+          <li>Circle time, learning centers &amp; free play</li>
+          <li>Kindergarten-readiness &amp; social skills</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- School age / before & after -->
+    <article class="age-spread reverse reveal">
+      <div class="age-media">
+        <!-- IMG-NEEDED: schoolage.jpg -->
+        <div class="age-photo tone-d" data-photo="schoolage.jpg">
+          <span class="age-tag">5 – 11 years</span>
+        </div>
+      </div>
+      <div class="age-copy">
+        <h3>Before &amp; After School</h3>
+        <p>
+          For our biggest kids, the day starts and ends with us. We provide
+          <strong>transportation to and from school</strong>, a calm spot for homework,
+          and time to just be a kid — so your morning and afternoon runs on schedule.
+        </p>
+        <ul class="age-points">
+          <li>Transportation to &amp; from school</li>
+          <li>Homework help &amp; quiet reading time</li>
+          <li>Games, crafts &amp; outdoor play</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= A DAY HERE (timeline) ================= -->
+<section class="day" id="day">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">A Day in the Life</p>
+      <h2>Predictable days, happy kids.</h2>
+      <p class="section-sub">
+        Little ones feel safest when they know what comes next. Here’s the gentle rhythm of
+        a typical day — the exact times flex by age and by your child’s own routine.
+      </p>
+    </header>
+
+    <ol class="timeline reveal">
+      <li>
+        <span class="t-time">6:00–8:30a</span>
+        <div class="t-body">
+          <h3>Arrival &amp; warm welcome</h3>
+          <p>Doors open at 6. Breakfast, quiet play, and a familiar face at the door for every child.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t-time">8:30–11:00a</span>
+        <div class="t-body">
+          <h3>Learning &amp; play</h3>
+          <p>Circle time, centers, art and stories — plus outdoor play when the Louisiana weather cooperates.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t-time">11:00a–12:30p</span>
+        <div class="t-body">
+          <h3>Lunch &amp; wind-down</h3>
+          <p>A calm sit-down lunch, hand-washing, books, and getting cozy for rest.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t-time">12:30–2:30p</span>
+        <div class="t-body">
+          <h3>Rest &amp; quiet time</h3>
+          <p>Naps for the little ones, quiet activities for those who’ve outgrown them.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t-time">2:30–6:00p</span>
+        <div class="t-body">
+          <h3>Snack, school pickups &amp; free play</h3>
+          <p>Afternoon snack, before/after-school kids arrive, and open play until pickup at close.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= SAFETY & CARE (split) ================= -->
+<section class="care" id="care">
+  <div class="wrap care-grid">
+    <div class="care-copy reveal">
+      <p class="section-kicker light">Safety &amp; Care</p>
+      <h2>Licensed, inspected, and genuinely watched over.</h2>
+      <p>
+        Trusting someone with your child is a big decision. We’ve earned that trust in
+        Gonzales for over fifty years by keeping the fundamentals right — every single day.
+      </p>
+      <dl class="care-list">
+        <div>
+          <dt>State-licensed center</dt>
+          <dd>A Louisiana Licensed Center (Type II), operating under state child-care regulations.</dd>
+        </div>
+        <div>
+          <dt>Clean inspection history</dt>
+          <dd>Recent state licensing inspections have been completed with no deficiencies noted.</dd>
+        </div>
+        <div>
+          <dt>Assistance accepted</dt>
+          <dd>We participate in subsidized child-care programs, so quality care stays within reach.</dd>
+        </div>
+        <div>
+          <dt>Safe transportation</dt>
+          <dd>Dedicated before- and after-school transportation to and from local schools.</dd>
+        </div>
+      </dl>
+    </div>
+    <aside class="care-card reveal">
+      <p class="care-card-kicker">Serving with care since</p>
+      <p class="care-year">1970</p>
+      <p class="care-card-body">
+        Five decades in one community isn’t an accident. It’s what happens when families
+        keep coming back — and sending their own children after them.
+      </p>
+      <a class="btn btn-primary btn-block" href="#tour">Come see for yourself</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= TOUR / ENROLLMENT FORM (money feature) ================= -->
+<section class="tour" id="tour">
+  <div class="wrap tour-grid">
+    <div class="tour-intro reveal">
+      <p class="section-kicker">Enroll &amp; Tour</p>
+      <h2>Come meet us. Bring the kids.</h2>
+      <p>
+        The best way to know a daycare is to walk through it. Tell us a little about your
+        family and we’ll reach out to set up a visit and answer your questions about
+        openings, hours, and enrollment.
+      </p>
+      <p class="tour-call">
+        Prefer to talk now?
+        <a href="tel:+12256474501">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.1 2.2Z"/></svg>
+          (225) 647-4501
+        </a>
+      </p>
+      <p class="tour-note">Mon–Fri, 6:00 AM – 6:00 PM · 41369 Bayou Narcisse Rd, Gonzales</p>
+    </div>
+
+    <form class="tour-form reveal" id="tourForm" novalidate>
+      <div class="field">
+        <label for="parentName">Parent / guardian name</label>
+        <input type="text" id="parentName" name="parentName" autocomplete="name" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="childAge">Child’s age</label>
+          <input type="text" id="childAge" name="childAge" placeholder="e.g. 18 months" required />
+        </div>
+        <div class="field">
+          <label for="program">Program interest</label>
+          <select id="program" name="program" required>
+            <option value="" disabled selected>Choose one…</option>
+            <option>Infants &amp; Nursery (6 wks–12 mo)</option>
+            <option>Toddlers (1–2 yrs)</option>
+            <option>Preschool &amp; Pre-K (3–4 yrs)</option>
+            <option>Before &amp; After School (5–11 yrs)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Anything you’d like us to know <span class="opt">(optional)</span></label>
+        <textarea id="message" name="message" rows="3" placeholder="Desired start date, questions, schedule needs…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Request info &amp; a tour</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="form-fineprint">
+        We’ll only use your details to reply about enrollment and tours. No portal, no spam.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= VISIT / LOCATION ================= -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="visit-info reveal">
+      <p class="section-kicker">Visit Us</p>
+      <h2>Right here in Gonzales.</h2>
+
+      <div class="visit-block">
+        <h3>Address</h3>
+        <p>41369 Bayou Narcisse Road<br/>Gonzales, LA 70737</p>
+        <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=41369+Bayou+Narcisse+Road+Gonzales+LA+70737" target="_blank" rel="noopener">Get directions →</a>
+      </div>
+
+      <div class="visit-block">
+        <h3>Hours</h3>
+        <table class="hours">
+          <tbody>
+            <tr><th scope="row">Monday – Friday</th><td>6:00 AM – 6:00 PM</td></tr>
+            <tr><th scope="row">Saturday – Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="visit-block">
+        <h3>Call</h3>
+        <p><a class="text-link big" href="tel:+12256474501">(225) 647-4501</a></p>
+      </div>
+    </div>
+
+    <div class="visit-map reveal">
+      <iframe
+        title="Map to La Maison Des Enfants, 41369 Bayou Narcisse Road, Gonzales, LA"
+        src="https://www.google.com/maps?q=41369+Bayou+Narcisse+Road+Gonzales+LA+70737&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <path d="M24 5 6 20v22a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3V20L24 5Z" fill="var(--sun)"/>
+          <path d="M24 5 6 20h36L24 5Z" fill="var(--coral)"/>
+          <circle cx="24" cy="30" r="7" fill="#fff"/>
+          <circle cx="24" cy="30" r="3.4" fill="var(--sky)"/>
+        </svg>
+      </span>
+      <p><strong>La Maison Des Enfants</strong><br/>Caring for Gonzales families since 1970.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#programs">Programs</a>
+      <a href="#day">A Day Here</a>
+      <a href="#care">Safety &amp; Care</a>
+      <a href="#tour">Schedule a Tour</a>
+    </nav>
+    <div class="footer-contact">
+      <p>41369 Bayou Narcisse Rd<br/>Gonzales, LA 70737</p>
+      <p><a href="tel:+12256474501">(225) 647-4501</a></p>
+      <p>Mon–Fri · 6:00 AM – 6:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; <span id="year"></span> La Maison Des Enfants. All rights reserved.</p>
+    <p class="footer-credit">Redesign concept — unsolicited pitch, not affiliated with the business.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
