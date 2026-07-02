@@ -150,7 +150,7 @@ em { font-style: italic; }
   background:
     radial-gradient(60% 55% at 82% 12%, rgba(255,201,77,.28), transparent 60%),
     radial-gradient(50% 50% at 8% 30%, rgba(87,183,230,.18), transparent 60%),
-    linear-gradient(180deg, var(--paper-2), var(--paper));
+    linear-gradient(180deg, var(--paper), var(--paper-2));
 }
 .hero-blob {
   position: absolute; z-index: -1; top: -120px; right: -140px; width: 520px; height: 520px;
@@ -392,7 +392,7 @@ em { font-style: italic; }
   .nav-scrim {
     position: fixed; inset: 0; background: rgba(51,48,46,.42);
     opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s var(--ease);
-    z-index: 54;
+    z-index: 54; cursor: pointer;
   }
   body.menu-open .nav-scrim { opacity: 1; visibility: visible; }
   body.menu-open { overflow: hidden; }
