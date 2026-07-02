@@ -48,7 +48,7 @@ card tags, a `<link rel="canonical">`, `robots.txt`, and `sitemap.xml`.
 
 Because the final domain isn't known yet, every absolute URL (canonical, `og:url`,
 `og:image`, sitemap `<loc>`, `robots.txt` Sitemap line, and the JSON-LD `url`/`image`)
-uses the literal placeholder **`https://REPLACE-WITH-DOMAIN.com/`**. At deploy time,
+uses the literal placeholder **`https://lamaisondesenfants.com/`**. At deploy time,
 do a single find-and-replace of that string with the real domain across
 `index.html`, `robots.txt`, and `sitemap.xml`.
 
