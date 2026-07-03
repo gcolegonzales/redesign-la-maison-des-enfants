@@ -25,17 +25,56 @@
   var toggle = document.getElementById("navToggle");
   var menu = document.getElementById("navMenu");
   var drawer = document.getElementById("navDrawer");
+  var brand = document.querySelector(".nav .brand");
+  var MOBILE_MQ = window.matchMedia("(max-width: 960px)");
 
-  var closeMenu = function () {
+  // page regions to make inert (unreachable) while the drawer is open
+  var outsideRegions = [
+    document.querySelector("main"),
+    document.querySelector(".site-footer"),
+    brand
+  ].filter(Boolean);
+
+  var setOutsideInert = function (on) {
+    outsideRegions.forEach(function (el) {
+      if (on) {
+        el.setAttribute("inert", "");
+        el.setAttribute("aria-hidden", "true");
+      } else {
+        el.removeAttribute("inert");
+        el.removeAttribute("aria-hidden");
+      }
+    });
+  };
+
+  var focusableInMenu = function () {
+    return Array.prototype.filter.call(
+      menu.querySelectorAll("a[href], button:not([disabled])"),
+      function (el) { return el.offsetParent !== null || el.getClientRects().length; }
+    );
+  };
+
+  var closeMenu = function (returnFocus) {
+    if (!document.body.classList.contains("menu-open")) return;
     document.body.classList.remove("menu-open");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open menu");
+    setOutsideInert(false);
+    if (returnFocus !== false) {
+      try { toggle.focus(); } catch (e) {}
+    }
   };
   var openMenu = function () {
     header.classList.remove("header-hidden");
     document.body.classList.add("menu-open");
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close menu");
+    setOutsideInert(true);
+    // move focus into the drawer (first focusable link)
+    var f = focusableInMenu();
+    if (f.length) {
+      try { f[0].focus(); } catch (e) {}
+    }
   };
   toggle.addEventListener("click", function () {
     if (document.body.classList.contains("menu-open")) closeMenu();
@@ -48,11 +87,43 @@
     });
   }
   menu.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") closeMenu();
+    // nav-link tap: close without stealing focus back to the toggle
+    if (e.target.closest("a")) closeMenu(false);
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeMenu();
+    if (!document.body.classList.contains("menu-open")) return;
+    if (e.key === "Escape") {
+      closeMenu();
+      return;
+    }
+    // trap Tab within the drawer
+    if (e.key === "Tab") {
+      var f = focusableInMenu();
+      if (!f.length) { e.preventDefault(); return; }
+      var first = f[0];
+      var last = f[f.length - 1];
+      var active = document.activeElement;
+      if (e.shiftKey) {
+        if (active === first || !menu.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last || !menu.contains(active)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
   });
+  // reset drawer + toggle state when crossing the desktop breakpoint
+  var onMqChange = function () {
+    if (!MOBILE_MQ.matches) {
+      closeMenu(false);
+    }
+  };
+  if (MOBILE_MQ.addEventListener) MOBILE_MQ.addEventListener("change", onMqChange);
+  else if (MOBILE_MQ.addListener) MOBILE_MQ.addListener(onMqChange);
 
   /* ---------- scroll reveal ---------- */
   var reveals = document.querySelectorAll(".reveal");
