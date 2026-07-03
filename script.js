@@ -2,11 +2,21 @@
 (function () {
   "use strict";
 
-  /* ---------- sticky header shrink ---------- */
+  /* ---------- header: shrink + reveal-on-scroll-up ---------- */
   var header = document.querySelector(".site-header");
+  var lastY = window.scrollY;
   var onScroll = function () {
-    if (window.scrollY > 24) header.classList.add("scrolled");
+    var y = window.scrollY;
+    if (y > 24) header.classList.add("scrolled");
     else header.classList.remove("scrolled");
+
+    // reveal on ANY upward scroll; hide when scrolling down past the header
+    if (y > lastY && y > 90) {
+      header.classList.add("header-hidden");
+    } else if (y < lastY) {
+      header.classList.remove("header-hidden");
+    }
+    lastY = y;
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -14,24 +24,29 @@
   /* ---------- mobile nav ---------- */
   var toggle = document.getElementById("navToggle");
   var menu = document.getElementById("navMenu");
-
-  var scrim = document.createElement("div");
-  scrim.className = "nav-scrim";
-  document.body.appendChild(scrim);
+  var drawer = document.getElementById("navDrawer");
 
   var closeMenu = function () {
-    menu.classList.remove("open");
     document.body.classList.remove("menu-open");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open menu");
   };
+  var openMenu = function () {
+    header.classList.remove("header-hidden");
+    document.body.classList.add("menu-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close menu");
+  };
   toggle.addEventListener("click", function () {
-    var open = menu.classList.toggle("open");
-    document.body.classList.toggle("menu-open", open);
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (document.body.classList.contains("menu-open")) closeMenu();
+    else openMenu();
   });
-  scrim.addEventListener("click", closeMenu);
+  // tap the scrim area (drawer wrapper, but not the menu panel) to close
+  if (drawer) {
+    drawer.addEventListener("click", function (e) {
+      if (!menu.contains(e.target)) closeMenu();
+    });
+  }
   menu.addEventListener("click", function (e) {
     if (e.target.tagName === "A") closeMenu();
   });
