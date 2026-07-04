@@ -98,9 +98,19 @@ em { font-style: italic; }
 .site-header {
   position: sticky; top: 0; z-index: 60;
   background: rgba(255,255,255,.82);
-  backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease), transform .35s var(--ease);
+}
+/* Put the backdrop-filter on a pseudo-element, NOT on .site-header itself.
+   backdrop-filter establishes a containing block for position:fixed descendants;
+   if it lived on the header, the mobile drawer (a fixed child) would be pinned to
+   the scrolling header instead of the viewport, pushing the close X off-screen
+   after scrolling. On the pseudo, the trap stays on the pseudo and the drawer
+   resolves against the real viewport. */
+.site-header::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
 }
 .site-header.scrolled { box-shadow: var(--shadow-sm); border-color: var(--line); }
 /* header reveals on any upward scroll; hides on scroll-down */
@@ -149,6 +159,9 @@ body.menu-open .site-header { transform: none; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* in-panel close (X) — hidden on desktop; shown inside the drawer on mobile */
+.nav-close { display: none; }
 
 /* ============================================================
    HERO
@@ -392,6 +405,20 @@ body.menu-open .site-header { transform: none; }
 
 @media (max-width: 960px) {
   .nav-toggle { display: flex; }
+  /* G1: exactly ONE visible close control. The drawer carries its own X (always
+     inside the fixed, full-viewport drawer, so it's visible at any scroll pos).
+     Hide the header hamburger while open so the two never both show. */
+  body.menu-open .nav-toggle { visibility: hidden; }
+  .nav-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    position: absolute; top: 1rem; right: 1rem; z-index: 2;
+    width: 44px; height: 44px; padding: 0;
+    background: #fff; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-close:hover { background: var(--cream); color: var(--coral-d); }
+  .nav-close-row { display: none; }
 
   /* clip wrapper: full viewport, hidden until open, clips the off-canvas panel
      so it can NEVER widen the page (kills horizontal scroll at the source) */
@@ -418,19 +445,25 @@ body.menu-open .site-header { transform: none; }
 
   .nav-menu {
     position: absolute; top: 0; right: 0; bottom: 0; left: auto;
-    height: 100%; width: min(320px, 82vw);
-    flex-direction: column; align-items: stretch; gap: .3rem;
-    background: #fff; box-shadow: var(--shadow-lg); padding: 5rem 1.4rem 2rem;
-    transform: translateX(100%); transition: transform .38s var(--ease);
+    height: 100%; width: min(340px, 88vw);
+    flex-direction: column; align-items: stretch; gap: .55rem;
+    background: #fff; box-shadow: var(--shadow-lg); padding: 5.5rem 1.75rem 2.25rem;
+    /* G2: single, crisp drawer move — one transform, whole-pixel end state,
+       no per-item entrance keyframes, no filter/blur mid-transition. */
+    transform: translateX(100%); transition: transform .34s var(--ease);
     overflow-y: auto; -webkit-overflow-scrolling: touch;
     user-select: none; -webkit-user-select: none;
   }
   body.menu-open .nav-menu { transform: translateX(0); }
   body.menu-open { overflow: hidden; }
-  .nav-menu a { padding: .85rem 1.2rem; border-radius: var(--r-sm); font-size: 1.05rem; }
+  .nav-menu li { display: flex; }
+  .nav-menu a {
+    display: flex; align-items: center; width: 100%; min-height: 52px;
+    padding: .9rem 1.25rem; border-radius: var(--r-sm); font-size: 1.08rem;
+  }
   .nav-menu a:not(.nav-cta)::after { display: none; }
   .nav-menu a:not(.nav-cta):hover { background: var(--cream); }
-  .nav-cta { text-align: center; margin-top: .4rem; }
+  .nav-cta { justify-content: center; margin-top: .75rem; }
 
   .hero-inner { grid-template-columns: 1fr; }
   .hero-media { max-width: 460px; margin: 0 auto; }

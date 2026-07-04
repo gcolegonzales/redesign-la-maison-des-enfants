@@ -25,6 +25,7 @@
   var toggle = document.getElementById("navToggle");
   var menu = document.getElementById("navMenu");
   var drawer = document.getElementById("navDrawer");
+  var closeBtn = document.getElementById("navClose");
   var brand = document.querySelector(".nav .brand");
   var MOBILE_MQ = window.matchMedia("(max-width: 960px)");
 
@@ -73,13 +74,16 @@
     // move focus into the drawer (first focusable link)
     var f = focusableInMenu();
     if (f.length) {
-      try { f[0].focus(); } catch (e) {}
+      try { f[0].focus({ preventScroll: true }); } catch (e) { try { f[0].focus(); } catch (e2) {} }
     }
   };
   toggle.addEventListener("click", function () {
     if (document.body.classList.contains("menu-open")) closeMenu();
     else openMenu();
   });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () { closeMenu(); });
+  }
   // tap the scrim area (drawer wrapper, but not the menu panel) to close
   if (drawer) {
     drawer.addEventListener("click", function (e) {
