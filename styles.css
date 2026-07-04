@@ -451,6 +451,7 @@ body.menu-open .site-header { transform: none; }
     /* G2: single, crisp drawer move — one transform, whole-pixel end state,
        no per-item entrance keyframes, no filter/blur mid-transition. */
     transform: translateX(100%); transition: transform .34s var(--ease);
+    will-change: transform; backface-visibility: hidden;
     overflow-y: auto; -webkit-overflow-scrolling: touch;
     user-select: none; -webkit-user-select: none;
   }
